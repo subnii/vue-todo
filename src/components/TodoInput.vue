@@ -1,0 +1,58 @@
+<template>
+  <div class="inputBox shadow">
+    <input type="text" v-model="newTodoText" @keyup.enter="onAddTodo()">
+    <span class="addContainer" @click="onAddTodo()">
+      <i class="fa fa-plus addBtn"></i>
+    </span>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      newTodoText: ""
+    }
+  },
+  methods:{
+    onAddTodo(){
+      if(this.newTodoText !== ''){
+        let obj = {completed: false, item: this.newTodoText};
+
+        localStorage.setItem(this.newTodoText, JSON.stringify(obj))
+        this.onClearInput();
+      }
+    },
+    onClearInput(){
+      this.newTodoText = "";
+    }
+  }
+}
+</script>
+
+<style scoped>
+input:focus{
+  outline: none;
+}
+.inputBox{
+  background: white;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+}
+.inputBox input{
+  border-style: none;
+  font-size: 0.9rem;
+}
+.addContainer{
+  float: right;
+  background: linear-gradient(to right, #6478fb, #8763fb);
+  display: block;
+  width: 3rem;
+  border-radius: 0 5px 5px 0;
+}
+.addBtn{
+  color: white;
+  vertical-align: middle;
+}
+</style>
