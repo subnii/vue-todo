@@ -43,11 +43,11 @@ export default {
     },
     onToggleItem(todo, index){
       this.todoList[index].completed = !this.todoList[index].completed;
-      localStorage.removeItem(todo.item);
-      localStorage.setItem(todo.item, JSON.stringify(todo))
+      localStorage.removeItem(todo);
+      localStorage.setItem(todo, JSON.stringify(todo))
     },
     onRemoveItem(todo, index){
-      localStorage.removeItem(todo.item);
+      localStorage.removeItem(todo);
       this.todoList.splice(index, 1);
     },
     onClearAllItems(){
