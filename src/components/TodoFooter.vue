@@ -13,7 +13,7 @@ export default {
   },
   methods:{
     onRemoveAll(){
-      localStorage.clear();
+      this.$emit('clearAllItems')
     }
   }
 }
