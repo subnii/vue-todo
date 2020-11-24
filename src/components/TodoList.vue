@@ -18,10 +18,10 @@ export default {
   props: ['todoList'],
   methods:{
     onToggleComplete(todo, index){
-      this.$emit('toggleItem', todo.item, index)
+      this.$emit('toggleItem', todo, index)
     },
     onRemoveTodo(todo, index){
-      this.$emit('removeItem', todo.item, index)
+      this.$emit('removeItem', todo, index)
     }
   }
 }
