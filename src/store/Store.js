@@ -23,6 +23,11 @@ export const store = new Vuex.Store({
   state:{
     todoList: storage.fetch()
   },
+  getters:{
+    storedTodoList(state){
+      return state.todoList;
+    }
+  },
   mutations:{
     onAddTodo(state, todo){
       let obj = {completed: false, item: todo};
@@ -34,7 +39,7 @@ export const store = new Vuex.Store({
       localStorage.removeItem(payload.todo.item);
       localStorage.setItem(payload.todo.item, JSON.stringify(payload.todo))
     },
-    onRemoveItem(state, payload){
+    onRemoveTodo(state, payload){
       localStorage.removeItem(payload.todo.item);
       state.todoList.splice(payload.index, 1);
     },
@@ -42,5 +47,6 @@ export const store = new Vuex.Store({
       localStorage.clear();
       state.todoList = [];
     }
+
   }
 })
