@@ -13,7 +13,7 @@ export default {
   },
   methods:{
     onRemoveAll(){
-      this.$emit('clearAllItems')
+      this.$store.commit('onClearAllItems')
     }
   }
 }
