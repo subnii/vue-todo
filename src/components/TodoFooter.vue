@@ -1,10 +1,12 @@
 <template>
   <div class="clearAllContainer">
-    <span class="clearAllBtn" @click="onRemoveAll()">Clear All</span>
+    <span class="clearAllBtn" @click="onClearAllItems()">Clear All</span>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   data(){
     return{
@@ -12,9 +14,7 @@ export default {
     }
   },
   methods:{
-    onRemoveAll(){
-      this.$store.commit('onClearAllItems')
-    }
+    ...mapMutations(['onClearAllItems'])
   }
 }
 </script>
